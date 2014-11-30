@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    var apiName = '<?=$apiName?>';
+</script>
+<div class="wrap angularjs-admin" ng-app="AngularAdmin">
+    <div ng-controller="AdminController as admin" ng-cloak>
+
+        <h2 class="heading push-down">Angular JS Enabled Admin</h2>
+
+        <p>Debug message to show that the AdminController is working : <strong>{{admin.debug}}</strong></p>
+
+        <div ng-show="admin.errors">
+            <div class="error" ng-repeat="error in admin.errors">
+                <p><strong>{{error.content}}</strong></p>
+            </div>
+        </div>
+
+        <div ng-show="admin.notifications">
+            <div class="notification" ng-repeat="message in admin.notifications">
+                <p><strong>{{message.content}}</strong></p>
+            </div>
+        </div>
+
+        <div ng-show="admin.dataLoaded">
+            <div>
+                <ul class="item-list">
+                    <li><h4 class="heading">Plugin Setting : </h4></li>
+                    <li><label>My Value : </label> <input type="text" class="regular-text" ng-model="admin.data.my_value"/></li>
+                    <li><button class="button button-primary" ng-click="admin.saveData()">Save</button></li>
+                </ul>
+            </div>
+        </div>
+
+    </div> <!-- end controller -->
+
+</div>
